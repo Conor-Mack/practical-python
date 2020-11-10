@@ -86,10 +86,10 @@ with open('outfile', 'wt') as out:
 
 ## Exercises
 
-These exercises depend on a file `Data/portfolio.csv`.  The file
+These exercises depend on a file `Data/portfolio.csv`. The file
 contains a list of lines with information on a portfolio of stocks.
 It is assumed that you are working in the `practical-python/Work/`
-directory.  If you're not sure, you can find out where Python thinks
+directory. If you're not sure, you can find out where Python thinks
 it's running by doing this:
 
 ```python
@@ -122,9 +122,9 @@ name,shares,price
 ```
 
 In the above example, it should be noted that Python has two modes of
-output.  In the first mode where you type `data` at the prompt, Python
+output. In the first mode where you type `data` at the prompt, Python
 shows you the raw string representation including quotes and escape
-codes.  When you type `print(data)`, you get the actual formatted
+codes. When you type `print(data)`, you get the actual formatted
 output of the string.
 
 Although reading a file all at once is simple, it is often not the
@@ -150,7 +150,7 @@ When you use this code as shown, lines are read until the end of the
 file is reached at which point the loop stops.
 
 On certain occasions, you might want to manually read or skip a
-*single* line of text (e.g., perhaps you want to skip the first line
+_single_ line of text (e.g., perhaps you want to skip the first line
 of column headers).
 
 ```python
@@ -190,18 +190,17 @@ For example, try this:
 >>> f.close()
 ```
 
-*Note: In these examples, `f.close()` is being called explicitly because the `with` statement isn’t being used.*
+_Note: In these examples, `f.close()` is being called explicitly because the `with` statement isn’t being used._
 
 ### Exercise 1.27: Reading a data file
 
 Now that you know how to read a file, let’s write a program to perform a simple calculation.
 
-The columns in `portfolio.csv` correspond to the stock name, number of
-shares, and purchase price of a single stock holding.  Write a program called
+shares, and purchase price of a single stock holding. Write a program called
 `pcost.py` that opens this file, reads all lines, and calculates how
 much it cost to purchase all of the shares in the portfolio.
 
-*Hint: to convert a string to an integer, use `int(s)`. To convert a string to a floating point, use `float(s)`.*
+_Hint: to convert a string to an integer, use `int(s)`. To convert a string to a floating point, use `float(s)`._
 
 Your program should print output such as the following:
 
@@ -212,7 +211,7 @@ Total cost 44671.15
 ### Exercise 1.28: Other kinds of "files"
 
 What if you wanted to read a non-text file such as a gzip-compressed
-datafile?  The builtin `open()` function won’t help you here, but
+datafile? The builtin `open()` function won’t help you here, but
 Python has a library module `gzip` that can read gzip compressed
 files.
 
@@ -228,20 +227,20 @@ Try it:
 >>>
 ```
 
-Note: Including the file mode of `'rt'` is critical here.  If you forget that,
+Note: Including the file mode of `'rt'` is critical here. If you forget that,
 you'll get byte strings instead of normal text strings.
 
-### Commentary:  Shouldn't we being using Pandas for this?
+### Commentary: Shouldn't we being using Pandas for this?
 
 Data scientists are quick to point out that libraries like
 [Pandas](https://pandas.pydata.org) already have a function for
-reading CSV files.  This is true--and it works pretty well.
+reading CSV files. This is true--and it works pretty well.
 However, this is not a course on learning Pandas. Reading files
 is a more general problem than the specifics of CSV files.
 The main reason we're working with a CSV file is that it's a
 familiar format to most coders and it's relatively easy to work with
 directly--illustrating many Python features in the process.
-So, by all means use Pandas when you go back to work.  For the
+So, by all means use Pandas when you go back to work. For the
 rest of this course however, we're going to stick with standard
 Python functionality.
 
