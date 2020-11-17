@@ -7,7 +7,6 @@ def read_prices(filename):
 
     with open(fn, 'rt') as f:
         reader = csv.reader(f)
-        headers = next(reader)
         for row in reader:
             if len(row) > 0:
                 name, price = row

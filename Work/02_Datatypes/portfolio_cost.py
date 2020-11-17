@@ -13,4 +13,4 @@ def portfolio_cost(filename):
             row_list.append(t)
         return row_list
 
-# portfolio_cost('Work/Data/portfolio.csv')
+portfolio_cost('portfolio.csv')

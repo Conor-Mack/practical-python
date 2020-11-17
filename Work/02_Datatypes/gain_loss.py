@@ -3,7 +3,7 @@ from read_prices import read_prices
 from portfolio_cost import portfolio_cost
 from pprint import pprint
 
-def canIRetire():
+def gainLoss():
     portfolio = portfolio_cost("portfolio.csv")
     prices = read_prices("prices.csv")
     breakDown = []
@@ -19,5 +19,5 @@ def canIRetire():
 
 twoDecP = lambda value : f'{value:0.2f}'
 
-result = canIRetire()
+result = gainLoss()
 pprint(result)
