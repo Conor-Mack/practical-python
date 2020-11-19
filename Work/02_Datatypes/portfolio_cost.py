@@ -1,5 +1,6 @@
 
 import csv
+from pprint import pprint
 
 def portfolio_cost(filename):
     row_list = []
@@ -8,9 +9,14 @@ def portfolio_cost(filename):
     with open(fn, 'rt') as f:
         rows = csv.reader(f)
         headers = next(rows)
-        for row in rows:
-            t = {'name': row[0], 'shares': int(row[1]), 'price':float(row[2])}
-            row_list.append(t)
+        for rowno, row in enumerate(rows):
+            record = dict(zip(headers, row))
+            try:
+                t = {'name': record["name"], 'shares': record["shares"], 'price': record["price"]}
+                row_list.append(t)
+            except ValueError:
+                print(f'Row {rowno}: Couldn\'t convert: {row}')
         return row_list
 
-portfolio_cost('portfolio.csv')
+res = portfolio_cost('portfolio.csv')
+pprint(res)
