@@ -1,5 +1,7 @@
-from fileparse import parse_csv
+#!/usr/bin/env python3
+# report.py
 
+from fileparse import parse_csv
 
 def dataDir(filename):
     import pathlib
@@ -7,11 +9,13 @@ def dataDir(filename):
 
 
 def read_portfolio(filename):
-    return parse_csv(filename, types=[str, int, float], has_headers=True)
+    with open(filename, 'rt') as file:
+        return parse_csv(file, types=[str, int, float], has_headers=True)
 
 
 def read_prices(filename):
-    return dict(parse_csv(filename, types=[str, float]))
+    with open(filename, 'rt') as file:
+        return dict(parse_csv(file, types=[str, float]))
 
 
 def make_report(portfolio, prices):
@@ -39,3 +43,12 @@ def portfolio_report(portfolioFile, priceFile):
 
     report = make_report(portfolio, prices)
     print_report(report, ('Name', 'Shares', 'Price', 'Change'))
+
+def main(args):
+    portfolio_file = args[1]
+    price_file = args[2]
+    portfolio_report(portfolio_file, price_file)
+
+if __name__ == "__main__":
+    import sys
+    main(sys.argv)
