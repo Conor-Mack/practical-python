@@ -1,3 +1,12 @@
+def print_table(data, select, formatter):
+    formatter.columns(select)
+    for d in data:
+        row_data = [str(getattr(d, name)) for name in select]
+        formatter.row(row_data)
+
+class FormatError(Exception):
+    pass
+
 def create_formatter(fmt):
     if fmt == "txt":
         return TextTableFormatter()
@@ -6,7 +15,7 @@ def create_formatter(fmt):
     elif fmt == "html":
         return HTMLTableFormatter()
     else:
-        raise ValueError(f"{fmt} is not a valid format")
+        raise FormatError(f"{fmt} is not a valid format")
 
 class TableFormatter:
     def headings(self, headers):
