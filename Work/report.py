@@ -2,8 +2,8 @@
 # report.py
 
 from fileparse import parse_csv
-import stock
-
+from stock import Stock
+from portfolio import Portfolio
 import tableformat
 
 
@@ -14,8 +14,10 @@ def dataDir(filename):
 
 def read_portfolio(filename):
     with open(filename, 'rt') as file:
-        portfolio = parse_csv(file, types=[str, int, float], has_headers=True)
-        return [stock.Stock(p['name'], p['shares'], p['price']) for p in portfolio]
+        portdicts = parse_csv(file, types=[str, int, float], has_headers=True)
+
+    portfolio = [Stock(p['name'], p['shares'], p['price']) for p in portdicts]
+    return Portfolio(portfolio)
 
 
 def read_prices(filename):

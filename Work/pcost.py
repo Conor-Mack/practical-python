@@ -5,7 +5,7 @@ from report import read_portfolio
 
 def portfolio_cost(filename):
     portfolio = read_portfolio(filename)
-    return sum([p.cost for p in portfolio])
+    return portfolio.total_cost
 
 def main(argv):
     filename = argv[1]
