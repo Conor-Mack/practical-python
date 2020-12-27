@@ -1,5 +1,5 @@
 def print_table(data, select, formatter):
-    formatter.columns(select)
+    formatter.headings(select)
     for d in data:
         row_data = [str(getattr(d, name)) for name in select]
         formatter.row(row_data)
