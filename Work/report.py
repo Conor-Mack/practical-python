@@ -7,17 +7,9 @@ from portfolio import Portfolio
 import tableformat
 
 
-def dataDir(filename):
-    import pathlib
-    return f'{pathlib.Path(__file__).parent.absolute()}\Data\{filename}'
-
-
-def read_portfolio(filename):
+def read_portfolio(filename, **opts):
     with open(filename, 'rt') as file:
-        portdicts = parse_csv(file, types=[str, int, float], has_headers=True)
-
-    portfolio = [Stock(p['name'], p['shares'], p['price']) for p in portdicts]
-    return Portfolio(portfolio)
+        return Portfolio.from_csv(file, **opts)
 
 
 def read_prices(filename):

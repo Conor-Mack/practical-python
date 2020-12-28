@@ -2,7 +2,7 @@
 import csv
 from collections.abc import Iterable
 
-def parse_csv(file, select=None, types=None, has_headers=False, delimiter=',', silence_errors=True):
+def parse_csv(file, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False):
     """
     Parse a CSV File into a list of records
     """
