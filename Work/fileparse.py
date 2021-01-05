@@ -1,6 +1,8 @@
 
 import csv
 from collections.abc import Iterable
+import logging
+log = logging.getLogger(__name__)
 
 def parse_csv(file, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False):
     """
@@ -41,8 +43,8 @@ def parse_csv(file, select=None, types=None, has_headers=True, delimiter=',', si
                 row = [func(val) for func, val in zip(types, row)]
             except (ValueError, TypeError) as e:
                 if not silence_errors:
-                    print(f'Row {idx + 1}: couldn\'t convert {row}')
-                    print(e)
+                    log.warning(f'Row {idx + 1}: couldn\'t convert {row}')
+                    log.debug(e)
 
         if has_headers:
             record = dict(zip(headers, row))

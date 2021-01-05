@@ -54,5 +54,7 @@ def main(args):
         portfolio_report(portfolio_file, price_file)
 
 if __name__ == "__main__":
+    import logging
+    logging.basicConfig(filename='app.log', filemode='w', level = logging.WARNING)
     import sys
     main(sys.argv)
